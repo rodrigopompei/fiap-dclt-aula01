@@ -40,7 +40,7 @@ jobs:
   test:
     name: 🧪 Testes Unitários
     runs-on: ubuntu-latest
-    needs: lint  # Executa após lint
+    #needs: lint  # Executa após lint
     
     steps:
       - name: 📥 Checkout
@@ -72,7 +72,8 @@ jobs:
   build:
     name: 🏗️ Build
     runs-on: ubuntu-latest
-    needs: test  # Executa após testes
+    needs: [lint, test] 
+    #needs: test  # Executa após testes
     
     steps:
       - name: 📥 Checkout
